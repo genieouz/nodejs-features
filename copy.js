@@ -1,5 +1,5 @@
 var fs = require("fs");
-const copy = (path) => {
+exports.copy = (path) => {
     console.log("Copy in progress.... ", path);
     fs.readFile(path, (error, file) => {
         if(error) throw error
@@ -10,7 +10,7 @@ const copy = (path) => {
     });
 }
 
-const copyWithStream = (path) => {
+exports.copyWithStream = (path) => {
     console.log("Copy in progress.... ", path);
     fs.stat(path, (err, stat) => {
         if(err) throw err
@@ -28,5 +28,3 @@ const copyWithStream = (path) => {
         });
     })
 }
-
-module.exports = { copy, copyWithStream }
